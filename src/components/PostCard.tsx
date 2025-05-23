@@ -8,24 +8,29 @@ interface PostCardProps {
 
 export function PostCard({ post }: PostCardProps) {
   return (
-    <Card className="group hover:shadow-md transition-shadow duration-200">
+    <Card className="philosophical-card smooth-transition group">
       <CardHeader className="pb-4">
-        <div className="space-y-2">
+        <div className="space-y-3">
           <Link href={`/blog/${post.slug}`}>
-            <h2 className="text-xl font-serif font-semibold leading-tight group-hover:text-primary transition-colors">
+            <h2 className="philosophical-heading text-2xl font-serif font-semibold leading-tight group-hover:text-primary transition-colors duration-300">
               {post.title}
             </h2>
           </Link>
-          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
+          <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+            <time 
+              dateTime={post.date}
+              className="font-medium"
+            >
+              {formatDate(post.date)}
+            </time>
             {post.tags && post.tags.length > 0 && (
               <>
-                <span>•</span>
-                <div className="flex space-x-2">
+                <span className="text-sage">•</span>
+                <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
                     <span 
                       key={tag} 
-                      className="px-2 py-1 bg-muted rounded-md text-xs font-medium"
+                      className="px-3 py-1 bg-gradient-to-r from-sage/10 to-gold/10 border border-sage/20 rounded-full text-xs font-medium text-sage hover:bg-gradient-to-r hover:from-sage/20 hover:to-gold/20 transition-all duration-300"
                     >
                       {tag}
                     </span>
@@ -36,16 +41,26 @@ export function PostCard({ post }: PostCardProps) {
           </div>
         </div>
       </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground leading-relaxed">
+      <CardContent className="space-y-4">
+        <p className="text-muted-foreground leading-relaxed text-justify">
           {post.excerpt}
         </p>
-        <Link 
-          href={`/blog/${post.slug}`}
-          className="inline-block mt-4 text-sm font-medium text-primary hover:underline"
-        >
-          Read more →
-        </Link>
+        <div className="pt-2">
+          <Link 
+            href={`/blog/${post.slug}`}
+            className="inline-flex items-center text-sm font-medium text-sage hover:text-gold transition-colors duration-300 group"
+          >
+            <span>Continue reading</span>
+            <svg 
+              className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
       </CardContent>
     </Card>
   );

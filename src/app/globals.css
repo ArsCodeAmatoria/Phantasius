@@ -1,63 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Keyframe animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    /* Enhanced color palette with philosophical themes */
+    --background: 252 252 250; /* Warm white, like parchment */
+    --foreground: 27 27 23; /* Deep charcoal for text */
+    --card: 255 255 253;
+    --card-foreground: 27 27 23;
+    --popover: 255 255 253;
+    --popover-foreground: 27 27 23;
+    --primary: 71 85 105; /* Slate blue - philosophical depth */
+    --primary-foreground: 248 250 252;
+    --secondary: 241 245 249; /* Light gray-blue */
+    --secondary-foreground: 71 85 105;
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139; /* Warm gray */
+    --accent: 226 232 240; /* Soft blue-gray */
+    --accent-foreground: 71 85 105;
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 250 252;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 71 85 105;
+    --chart-1: 168 85 247;
+    --chart-2: 34 197 94;
+    --chart-3: 251 146 60;
+    --chart-4: 14 165 233;
+    --chart-5: 236 72 153;
+    --radius: 0.75rem;
+    
+    /* Philosophical accent colors */
+    --sage: 134 147 122; /* Sage green for wisdom */
+    --gold: 218 165 32; /* Gold for enlightenment */
+    --marble: 248 248 246; /* Marble white */
+    --scroll: 245 241 234; /* Ancient scroll color */
   }
   
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --background: 15 23 42; /* Deep slate */
+    --foreground: 248 250 252;
+    --card: 30 41 59; /* Darker slate */
+    --card-foreground: 248 250 252;
+    --popover: 30 41 59;
+    --popover-foreground: 248 250 252;
+    --primary: 148 163 184; /* Light slate */
+    --primary-foreground: 15 23 42;
+    --secondary: 51 65 85; /* Mid slate */
+    --secondary-foreground: 248 250 252;
+    --muted: 51 65 85;
+    --muted-foreground: 148 163 184;
+    --accent: 51 65 85;
+    --accent-foreground: 248 250 252;
+    --destructive: 220 38 38;
+    --destructive-foreground: 248 250 252;
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --ring: 148 163 184;
+    --chart-1: 139 92 246;
+    --chart-2: 34 197 94;
+    --chart-3: 251 146 60;
+    --chart-4: 59 130 246;
+    --chart-5: 236 72 153;
+    
+    /* Dark mode philosophical colors */
+    --sage: 107 114 128;
+    --gold: 251 191 36;
+    --marble: 71 85 105;
+    --scroll: 51 65 85;
   }
 }
 
@@ -67,64 +101,302 @@
   }
   
   body {
-    @apply bg-background text-foreground font-serif;
+    @apply bg-background text-foreground font-serif antialiased;
     font-family: 'Crimson Text', 'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman', 'serif';
-    line-height: 1.7;
-    letter-spacing: 0.01em;
+    line-height: 1.75;
+    letter-spacing: 0.015em;
+    /* Subtle texture background */
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(134, 147, 122, 0.02) 1px, transparent 0);
+    background-size: 40px 40px;
   }
   
-  /* Greek typography and philosophical styling */
+  /* Enhanced Greek typography */
   .greek-text {
     font-family: 'Noto Serif', 'Georgia', serif;
     font-weight: 500;
+    color: hsl(var(--sage));
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
   }
   
-  /* Beautiful prose styling */
+  .greek-text:hover {
+    color: hsl(var(--gold));
+    transform: scale(1.05);
+  }
+  
+  /* Philosophical heading styles */
+  .philosophical-heading {
+    font-family: 'Playfair Display', 'Crimson Text', serif;
+    font-weight: 500;
+    color: hsl(var(--primary));
+    position: relative;
+  }
+  
+  .philosophical-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, hsl(var(--sage)), hsl(var(--gold)));
+    border-radius: 1px;
+  }
+  
+  /* Enhanced prose styling */
   .prose {
     @apply max-w-none;
   }
   
   .prose h1 {
-    @apply text-4xl font-serif font-semibold leading-tight tracking-tight;
-    font-family: 'Crimson Text', serif;
+    @apply text-5xl font-serif font-bold leading-tight tracking-tight mb-8;
+    font-family: 'Playfair Display', 'Crimson Text', serif;
+    color: hsl(var(--primary));
+    position: relative;
+  }
+  
+  .prose h1::first-letter {
+    @apply text-7xl float-left mr-3 mt-1;
+    font-family: 'Playfair Display', serif;
+    color: hsl(var(--sage));
+    line-height: 0.8;
   }
   
   .prose h2 {
-    @apply text-2xl font-serif font-semibold mt-12 mb-6 leading-tight;
-    font-family: 'Crimson Text', serif;
+    @apply text-3xl font-serif font-semibold mt-16 mb-8 leading-tight;
+    font-family: 'Playfair Display', 'Crimson Text', serif;
+    color: hsl(var(--primary));
+    position: relative;
+  }
+  
+  .prose h2::before {
+    content: '§';
+    position: absolute;
+    left: -2rem;
+    color: hsl(var(--sage));
+    font-size: 0.8em;
+    opacity: 0.6;
   }
   
   .prose h3 {
-    @apply text-xl font-serif font-semibold mt-8 mb-4;
-    font-family: 'Crimson Text', serif;
+    @apply text-xl font-serif font-semibold mt-12 mb-6;
+    font-family: 'Playfair Display', 'Crimson Text', serif;
+    color: hsl(var(--primary));
   }
   
   .prose p {
-    @apply mb-6 leading-relaxed;
+    @apply mb-8 leading-relaxed;
+    text-align: justify;
+    hyphens: auto;
   }
   
+  .prose p:first-of-type {
+    @apply text-lg;
+    color: hsl(var(--muted-foreground));
+  }
+  
+  /* Beautiful blockquotes */
   .prose blockquote {
-    @apply border-l-4 border-muted-foreground/30 pl-6 italic text-muted-foreground my-8;
+    @apply border-l-4 pl-8 italic my-12 relative;
+    border-color: hsl(var(--sage));
+    background: linear-gradient(to right, 
+      hsla(var(--scroll), 0.3), 
+      hsla(var(--scroll), 0.1), 
+      transparent
+    );
+    padding: 2rem 2rem 2rem 3rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 1.1em;
+    position: relative;
+  }
+  
+  .prose blockquote::before {
+    content: '"';
+    position: absolute;
+    left: 1rem;
+    top: 0.5rem;
+    font-size: 4rem;
+    color: hsl(var(--sage));
+    opacity: 0.3;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+  
+  .prose blockquote p {
+    @apply mb-4;
+    text-align: left;
   }
   
   .prose strong {
     @apply font-semibold;
+    color: hsl(var(--primary));
   }
   
   .prose em {
     @apply italic;
+    color: hsl(var(--sage));
   }
   
+  /* Enhanced lists */
   .prose ul, .prose ol {
-    @apply my-6 space-y-2;
+    @apply my-8 space-y-3;
   }
   
   .prose li {
     @apply leading-relaxed;
+    position: relative;
   }
   
-  /* Scroll-like spacing */
+  .prose ul li::marker {
+    color: hsl(var(--sage));
+  }
+  
+  .prose ol li::marker {
+    color: hsl(var(--sage));
+    font-weight: 600;
+  }
+  
+  /* Philosophical callouts */
+  .philosophical-callout {
+    @apply p-6 my-8 rounded-lg border-l-4;
+    border-color: hsl(var(--gold));
+    background: linear-gradient(135deg, 
+      hsla(var(--scroll), 0.4), 
+      hsla(var(--marble), 0.2)
+    );
+    position: relative;
+  }
+  
+  .philosophical-callout::before {
+    content: '⚬';
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: hsl(var(--gold));
+    font-size: 1.5rem;
+  }
+  
+  /* Scroll-like spacing and margins */
   .scroll-spacing {
-    @apply space-y-8;
+    @apply space-y-12;
+  }
+  
+  .scroll-container {
+    @apply max-w-4xl mx-auto px-8;
+    position: relative;
+  }
+  
+  .scroll-container::before,
+  .scroll-container::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, 
+      transparent, 
+      hsl(var(--sage)), 
+      transparent
+    );
+  }
+  
+  .scroll-container::before {
+    top: 0;
+  }
+  
+  .scroll-container::after {
+    bottom: 0;
+  }
+  
+  /* Smooth transitions for interactive elements */
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Enhanced cards */
+  .philosophical-card {
+    @apply bg-card border border-border rounded-lg overflow-hidden;
+    background: linear-gradient(135deg, 
+      hsla(var(--card), 1), 
+      hsla(var(--scroll), 0.1)
+    );
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  
+  .philosophical-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, 
+      hsl(var(--sage)), 
+      hsl(var(--gold)), 
+      hsl(var(--sage))
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .philosophical-card:hover::before {
+    opacity: 1;
+  }
+  
+  .philosophical-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 10px 25px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05),
+      0 0 0 1px hsla(var(--sage), 0.1);
+  }
+  
+  /* Reading progress indicator */
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, 
+      hsl(var(--sage)), 
+      hsl(var(--gold))
+    );
+    transform-origin: left;
+    transform: scaleX(0);
+    z-index: 50;
+    transition: transform 0.1s ease;
+  }
+  
+  /* Enhanced focus states */
+  .focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+  
+  /* Utility classes for custom colors */
+  .text-sage {
+    color: hsl(var(--sage));
+  }
+  
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  
+  .bg-sage {
+    background-color: hsl(var(--sage));
+  }
+  
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+  
+  .border-sage {
+    border-color: hsl(var(--sage));
+  }
+  
+  .border-gold {
+    border-color: hsl(var(--gold));
   }
 }

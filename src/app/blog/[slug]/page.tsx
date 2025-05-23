@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Clock } from "lucide-react";
 import { getPostData, getAllPostSlugs, formatDate } from "@/lib/posts";
 import { Button } from "@/components/ui/button";
 
@@ -32,73 +32,151 @@ export async function generateMetadata({ params }: BlogPostProps) {
   }
 }
 
+// Estimate reading time (average 200 words per minute)
+function estimateReadingTime(content: string): number {
+  const wordsPerMinute = 200;
+  const words = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
+  return Math.ceil(words / wordsPerMinute);
+}
+
 export default async function BlogPost({ params }: BlogPostProps) {
   try {
     const { slug } = await params;
     const post = await getPostData(slug);
+    const readingTime = estimateReadingTime(post.content);
 
     return (
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-3xl mx-auto">
-          {/* Back Button */}
-          <div className="mb-8">
-            <Link href="/">
-              <Button variant="ghost" className="pl-0">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Essays
-              </Button>
-            </Link>
-          </div>
-
-          {/* Article Header */}
-          <header className="mb-12">
-            <h1 className="text-4xl font-serif font-bold leading-tight mb-6">
-              {post.title}
-            </h1>
-            
-            <div className="flex items-center space-x-4 text-muted-foreground mb-6">
-              <time dateTime={post.date} className="text-sm">
-                {formatDate(post.date)}
-              </time>
-              {post.tags && post.tags.length > 0 && (
-                <>
-                  <span>•</span>
-                  <div className="flex space-x-2">
-                    {post.tags.map((tag) => (
-                      <span 
-                        key={tag} 
-                        className="px-2 py-1 bg-muted rounded-md text-xs font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </>
-              )}
+      <>
+        {/* Reading Progress Bar */}
+        <div className="reading-progress" id="reading-progress"></div>
+        
+        <div className="scroll-container py-12">
+          <div className="max-w-4xl mx-auto">
+            {/* Back Button */}
+            <div className="mb-12">
+              <Link href="/">
+                <Button variant="ghost" className="pl-0 hover:bg-sage/10 transition-colors duration-300">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Essays
+                </Button>
+              </Link>
             </div>
 
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              {post.excerpt}
-            </p>
-          </header>
+            {/* Article Header */}
+            <header className="mb-16 text-center">
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight philosophical-heading">
+                  {post.title}
+                </h1>
+                
+                <div className="flex items-center justify-center space-x-6 text-muted-foreground">
+                  <time dateTime={post.date} className="flex items-center space-x-2">
+                    <span className="text-sage">📅</span>
+                    <span className="font-medium">{formatDate(post.date)}</span>
+                  </time>
+                  
+                  <div className="flex items-center space-x-2">
+                    <Clock className="h-4 w-4 text-sage" />
+                    <span>{readingTime} min read</span>
+                  </div>
+                </div>
 
-          {/* Article Content */}
-          <article 
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+                {post.tags && post.tags.length > 0 && (
+                  <div className="flex justify-center">
+                    <div className="flex flex-wrap gap-3">
+                      {post.tags.map((tag) => (
+                        <span 
+                          key={tag} 
+                          className="px-4 py-2 bg-gradient-to-r from-sage/10 to-gold/10 border border-sage/20 rounded-full text-sm font-medium text-sage hover:bg-gradient-to-r hover:from-sage/20 hover:to-gold/20 transition-all duration-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
-          {/* Navigation */}
-          <div className="mt-16 pt-8 border-t border-border">
-            <Link href="/">
-              <Button variant="outline">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Return to Essays
-              </Button>
-            </Link>
+                <div className="max-w-3xl mx-auto">
+                  <p className="text-xl text-muted-foreground leading-relaxed italic">
+                    {post.excerpt}
+                  </p>
+                </div>
+                
+                {/* Decorative separator */}
+                <div className="flex justify-center pt-6">
+                  <div className="w-32 h-px bg-gradient-to-r from-transparent via-sage to-transparent"></div>
+                  <div className="mx-4 text-sage text-xl">⚬</div>
+                  <div className="w-32 h-px bg-gradient-to-r from-transparent via-sage to-transparent"></div>
+                </div>
+              </div>
+            </header>
+
+            {/* Article Content */}
+            <article className="max-w-3xl mx-auto">
+              <div 
+                className="prose prose-lg prose-philosophy max-w-none"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
+            </article>
+
+            {/* Navigation Footer */}
+            <footer className="mt-20 pt-12 border-t border-sage/20">
+              <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+                <Link href="/">
+                  <Button 
+                    variant="outline" 
+                    className="border-sage/30 hover:bg-sage/10 hover:border-sage/50 transition-all duration-300"
+                  >
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Return to Essays
+                  </Button>
+                </Link>
+                
+                <div className="text-center">
+                  <p className="text-sm text-muted-foreground italic">
+                    Continue your philosophical journey
+                  </p>
+                  <p className="greek-text text-lg mt-1">
+                    φαντασία
+                  </p>
+                </div>
+              </div>
+            </footer>
           </div>
         </div>
-      </div>
+
+        {/* Reading Progress Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined') {
+                function updateReadingProgress() {
+                  const progressBar = document.getElementById('reading-progress');
+                  if (!progressBar) return;
+                  
+                  const article = document.querySelector('article');
+                  if (!article) return;
+                  
+                  const scrollTop = window.pageYOffset;
+                  const articleTop = article.offsetTop;
+                  const articleHeight = article.offsetHeight;
+                  const windowHeight = window.innerHeight;
+                  
+                  const progress = Math.max(0, Math.min(1, 
+                    (scrollTop - articleTop + windowHeight * 0.1) / articleHeight
+                  ));
+                  
+                  progressBar.style.transform = \`scaleX(\${progress})\`;
+                }
+                
+                window.addEventListener('scroll', updateReadingProgress);
+                window.addEventListener('resize', updateReadingProgress);
+                updateReadingProgress();
+              }
+            `,
+          }}
+        />
+      </>
     );
   } catch {
     notFound();
