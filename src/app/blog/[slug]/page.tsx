@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Clock } from "lucide-react";
 import { getPostData, getAllPostSlugs, formatDate } from "@/lib/posts";
 import { Button } from "@/components/ui/button";
+import { ReadingProgress } from "@/components/ReadingProgress";
 
 interface BlogPostProps {
   params: Promise<{
@@ -48,7 +49,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
     return (
       <>
         {/* Reading Progress Bar */}
-        <div className="reading-progress" id="reading-progress"></div>
+        <ReadingProgress />
         
         <div className="scroll-container py-12">
           <div className="max-w-4xl mx-auto">
@@ -144,38 +145,6 @@ export default async function BlogPost({ params }: BlogPostProps) {
             </footer>
           </div>
         </div>
-
-        {/* Reading Progress Script */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (typeof window !== 'undefined') {
-                function updateReadingProgress() {
-                  const progressBar = document.getElementById('reading-progress');
-                  if (!progressBar) return;
-                  
-                  const article = document.querySelector('article');
-                  if (!article) return;
-                  
-                  const scrollTop = window.pageYOffset;
-                  const articleTop = article.offsetTop;
-                  const articleHeight = article.offsetHeight;
-                  const windowHeight = window.innerHeight;
-                  
-                  const progress = Math.max(0, Math.min(1, 
-                    (scrollTop - articleTop + windowHeight * 0.1) / articleHeight
-                  ));
-                  
-                  progressBar.style.transform = \`scaleX(\${progress})\`;
-                }
-                
-                window.addEventListener('scroll', updateReadingProgress);
-                window.addEventListener('resize', updateReadingProgress);
-                updateReadingProgress();
-              }
-            `,
-          }}
-        />
       </>
     );
   } catch {
