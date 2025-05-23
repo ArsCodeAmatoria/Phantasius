@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
 export default {
-    darkMode: ["class"],
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,13 +12,14 @@ export default {
         serif: ['Crimson Text', 'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman', 'Droid Serif', 'Times', 'serif'],
         greek: ['Noto Serif', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Playfair Display', 'Crimson Text', 'serif'],
       },
       typography: {
         DEFAULT: {
           css: {
             fontFamily: 'Crimson Text, serif',
-            lineHeight: '1.7',
-            letterSpacing: '0.01em',
+            lineHeight: '1.75',
+            letterSpacing: '0.015em',
           }
         }
       },
@@ -57,6 +57,8 @@ export default {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
+  			sage: 'hsl(var(--sage))',
+  			gold: 'hsl(var(--gold))',
   			chart: {
   				'1': 'hsl(var(--chart-1))',
   				'2': 'hsl(var(--chart-2))',

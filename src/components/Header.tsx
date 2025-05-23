@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
   return (
@@ -39,9 +38,6 @@ export function Header() {
               <span>About</span>
               <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-sage scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </Link>
-            <div className="border-l border-border pl-6">
-              <ThemeToggle />
-            </div>
           </nav>
         </div>
       </div>

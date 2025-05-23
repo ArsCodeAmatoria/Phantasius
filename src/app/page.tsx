@@ -84,7 +84,7 @@ export default function Home() {
             <div className="mt-12 pt-8 border-t border-gold/20">
               <blockquote className="text-center">
                 <p className="greek-text text-xl mb-3">
-                  "γνῶθι σεαυτόν"
+                  &ldquo;γνῶθι σεαυτόν&rdquo;
                 </p>
                 <footer className="text-sm text-muted-foreground italic">
                   Know thyself — Inscribed at the Temple of Apollo at Delphi

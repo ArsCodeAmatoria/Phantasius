@@ -10,22 +10,24 @@ The name "Phantasius" invokes the Platonic and Stoic idea of internal images, ap
 
 ## Features
 
-- 🎨 **Beautiful Typography** - Serif fonts (Crimson Text) with Greek-inspired styling
-- 🌙 **Dark/Light Mode** - Seamless theme switching with next-themes
-- 📝 **Markdown-Powered** - Write posts in Markdown with frontmatter
-- 🎯 **Static Generation** - Fast, SEO-friendly static site generation
-- 📱 **Responsive Design** - Beautiful on all devices
-- 🏛️ **Philosophical Theme** - Greek typography and scroll-like spacing
-- ⚡ **Modern Stack** - Next.js 15, Tailwind CSS, shadcn/ui
+- **Beautiful Typography** - Serif fonts (Crimson Text, Playfair Display) with Greek-inspired styling
+- **Dark Mode Design** - Sophisticated dark theme optimized for reading
+- **Markdown-Powered** - Write posts in Markdown with frontmatter
+- **Static Generation** - Fast, SEO-friendly static site generation
+- **Responsive Design** - Beautiful on all devices
+- **Philosophical Theme** - Greek typography and scroll-like spacing
+- **Modern Stack** - Next.js 15, Tailwind CSS, shadcn/ui
+- **Reading Progress** - Visual progress indicator for long-form content
+- **Interactive Elements** - Smooth animations and hover effects
 
 ## Tech Stack
 
 - **Framework**: Next.js 15 with App Router
 - **Styling**: Tailwind CSS + shadcn/ui components
 - **Content**: Markdown with gray-matter frontmatter parsing
-- **Typography**: Google Fonts (Crimson Text, Noto Serif, Inter)
+- **Typography**: Google Fonts (Crimson Text, Playfair Display, Noto Serif, Inter)
 - **Icons**: Lucide React
-- **Theme**: next-themes for dark/light mode
+- **Theme**: Custom dark mode design
 - **Deployment**: Ready for Vercel, Netlify, or any static host
 
 ## Getting Started
@@ -107,12 +109,18 @@ phantasius/
 The blog uses beautiful serif typography optimized for reading:
 
 - **Primary Font**: Crimson Text (serif)
+- **Display Font**: Playfair Display (serif)
 - **Greek Text**: Noto Serif 
 - **UI Elements**: Inter (sans-serif)
 
 ### Colors & Theme
 
-Built on shadcn/ui's design system with custom CSS variables for easy theming. The color palette supports both light and dark modes.
+Built on shadcn/ui's design system with custom CSS variables for philosophical theming. The dark color palette includes:
+
+- **Sage green** for wisdom and emphasis
+- **Gold** for enlightenment and accents
+- **Deep slate** for backgrounds
+- **Warm grays** for text and subtle elements
 
 ### Adding Components
 
@@ -150,6 +158,7 @@ This blog embodies the ancient Greek understanding of phantasia—the space wher
 - Contemplative reading experience  
 - Greek typographic elements
 - Minimalist, distraction-free interface
+- Dark theme for focused contemplation
 
 ## Contributing
 
