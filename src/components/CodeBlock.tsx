@@ -52,7 +52,7 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
   const displayFilename = filename || `${language}.${fileExtension}`;
 
   return (
-    <div className="my-8 rounded-lg overflow-hidden border border-slate-700 shadow-2xl bg-[#1a1a1a]">
+    <div className="my-8 rounded-lg overflow-hidden shadow-2xl bg-[#2d2d2d]">
       {/* Window Header */}
       <div className="flex items-center justify-between bg-slate-700 px-4 py-3 border-b border-slate-600">
         <div className="flex items-center space-x-3">
@@ -89,14 +89,14 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
       </div>
 
       {/* Code Content */}
-      <div className="relative bg-[#1a1a1a]">
+      <div className="relative bg-[#2d2d2d]">
         <SyntaxHighlighter
           language={language}
           style={dracula}
           customStyle={{
             margin: 0,
             padding: '1.5rem',
-            backgroundColor: '#1a1a1a !important',
+            backgroundColor: '#2d2d2d !important',
             fontSize: '0.875rem',
             lineHeight: '1.5',
           }}
@@ -110,7 +110,7 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
           wrapLines={true}
           wrapLongLines={true}
           CodeTag={({ children, ...props }) => (
-            <code {...props} style={{ backgroundColor: '#1a1a1a !important' }}>
+            <code {...props} style={{ backgroundColor: '#2d2d2d !important' }}>
               {children}
             </code>
           )}
