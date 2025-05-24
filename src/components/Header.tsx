@@ -25,7 +25,7 @@ export function Header() {
           
           <nav className="flex items-center space-x-8">
             <Link 
-              href="/" 
+              href="/essays" 
               className="text-sm font-medium transition-colors duration-300 hover:text-sage relative group"
             >
               <span>Essays</span>

@@ -1,8 +1,11 @@
 import { getSortedPostsData } from "@/lib/posts";
 import { PostCard } from "@/components/PostCard";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   const allPostsData = getSortedPostsData();
+  const recentPosts = allPostsData.slice(0, 4); // Show only 4 most recent posts
 
   return (
     <div className="scroll-container py-16">
@@ -36,19 +39,19 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Blog Posts */}
+        {/* Recent Essays */}
         <div className="scroll-spacing">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-serif font-semibold philosophical-heading mb-4">
               Recent Essays
             </h2>
             <p className="text-muted-foreground italic">
-              Invitations to philosophical reflection
+              Latest invitations to philosophical reflection
             </p>
           </div>
           
           <div className="grid gap-10 max-w-4xl mx-auto">
-            {allPostsData.map((post, index) => (
+            {recentPosts.map((post, index) => (
               <div 
                 key={post.slug}
                 className="animate-fade-in-up"
@@ -61,6 +64,19 @@ export default function Home() {
                 <PostCard post={post} />
               </div>
             ))}
+          </div>
+
+          {/* View All Essays Button */}
+          <div className="text-center mt-12">
+            <Link href="/essays">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-sage/30 hover:bg-sage/10 hover:border-sage/50 transition-all duration-300 text-lg px-8 py-3"
+              >
+                View All Essays ({allPostsData.length})
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -78,6 +94,27 @@ export default function Home() {
               <p className="text-muted-foreground italic">
                 Each essay is an invitation to philosophical reflection and deeper understanding.
               </p>
+            </div>
+            
+            {/* Explore Topics */}
+            <div className="mt-12">
+              <h4 className="text-xl font-serif font-medium mb-6 text-sage">Explore by Topic</h4>
+              <div className="flex flex-wrap justify-center gap-3">
+                {[
+                  'consciousness', 'ancient-wisdom', 'philosophy', 
+                  'attention', 'beauty', 'dreams'
+                ].map((tag) => (
+                  <Link key={tag} href={`/essays?tag=${tag}`}>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="border-sage/20 hover:bg-sage/10 hover:border-sage/40 transition-all duration-300 capitalize"
+                    >
+                      {tag}
+                    </Button>
+                  </Link>
+                ))}
+              </div>
             </div>
             
             {/* Ancient Greek quote */}
