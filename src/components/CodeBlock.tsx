@@ -52,7 +52,7 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
   const displayFilename = filename || `${language}.${fileExtension}`;
 
   return (
-    <div className="my-8 rounded-lg overflow-hidden shadow-2xl bg-[#2d2d2d]">
+    <div className="my-8 rounded-lg overflow-hidden shadow-2xl">
       {/* Window Header */}
       <div className="flex items-center justify-between bg-slate-700 px-4 py-3 border-b border-slate-600">
         <div className="flex items-center space-x-3">
@@ -88,15 +88,28 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
         </button>
       </div>
 
-      {/* Code Content */}
-      <div className="relative bg-[#2d2d2d]">
+      {/* Code Content - SyntaxHighlighter with background overrides */}
+      <div 
+        className="relative code-block-override"
+        style={{ 
+          backgroundColor: '#2d2d2d !important',
+          padding: 0,
+          fontSize: '0.875rem',
+          lineHeight: '1.5',
+        }}
+      >
         <SyntaxHighlighter
           language={language}
           style={dracula}
+          className="code-pre-override"
           customStyle={{
-            margin: 0,
-            padding: '1.5rem',
             backgroundColor: '#2d2d2d !important',
+            color: '#f8f8f2 !important',
+            margin: '0 !important',
+            padding: '1.5rem !important',
+            border: 'none !important',
+            borderRadius: '0 !important',
+            boxShadow: 'none !important',
             fontSize: '0.875rem',
             lineHeight: '1.5',
           }}
@@ -106,11 +119,24 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
             paddingRight: '1em',
             color: '#9ca3af',
             fontSize: '0.8rem',
+            backgroundColor: '#2d2d2d !important',
           }}
           wrapLines={true}
           wrapLongLines={true}
           CodeTag={({ children, ...props }) => (
-            <code {...props} style={{ backgroundColor: '#2d2d2d !important' }}>
+            <code 
+              {...props} 
+              className="code-element-override"
+              style={{ 
+                backgroundColor: '#2d2d2d !important',
+                color: 'inherit !important',
+                padding: '0 !important',
+                margin: '0 !important',
+                border: 'none !important',
+                borderRadius: '0 !important',
+                fontSize: 'inherit !important',
+              }}
+            >
               {children}
             </code>
           )}

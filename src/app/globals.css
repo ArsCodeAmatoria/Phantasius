@@ -295,8 +295,62 @@
     color: inherit;
   }
 
-  /* Remove old syntax highlighting - now handled by CodeBlock component */
+  /* Force dark gray background for react-syntax-highlighter */
+  .prose div[data-testid="code-block"] {
+    background: #2d2d2d !important;
+  }
   
+  .prose .code-container {
+    background: #2d2d2d !important;
+  }
+  
+  /* Override any syntax highlighter background */
+  .prose pre[class*="language-"] {
+    background: #2d2d2d !important;
+  }
+  
+  .prose code[class*="language-"] {
+    background: #2d2d2d !important;
+  }
+  
+  /* React syntax highlighter specific overrides */
+  .prose .react-syntax-highlighter-line-number {
+    background: #2d2d2d !important;
+  }
+
+  /* Code block component overrides - highest specificity */
+  .code-block-override,
+  .prose .code-block-override {
+    background: #2d2d2d !important;
+    background-color: #2d2d2d !important;
+  }
+  
+  .code-pre-override,
+  .prose .code-pre-override,
+  .prose pre.code-pre-override {
+    background: #2d2d2d !important;
+    background-color: #2d2d2d !important;
+    color: #f8f8f2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  
+  .code-element-override,
+  .prose .code-element-override,
+  .prose code.code-element-override {
+    background: #2d2d2d !important;
+    background-color: #2d2d2d !important;
+    color: #f8f8f2 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    font-size: inherit !important;
+  }
+
   /* Philosophical callouts */
   .philosophical-callout {
     @apply p-6 my-8 rounded-lg border-l-4;
