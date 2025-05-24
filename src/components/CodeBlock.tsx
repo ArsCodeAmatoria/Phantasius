@@ -1,7 +1,7 @@
 'use client';
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 
@@ -9,6 +9,34 @@ interface CodeBlockProps {
   code: string;
   language?: string;
   filename?: string;
+}
+
+// Function to get proper file extension
+function getFileExtension(language: string): string {
+  const extensions: Record<string, string> = {
+    javascript: 'js',
+    typescript: 'ts',
+    python: 'py',
+    haskell: 'hs',
+    rust: 'rs',
+    cpp: 'cpp',
+    c: 'c',
+    java: 'java',
+    go: 'go',
+    php: 'php',
+    ruby: 'rb',
+    bash: 'sh',
+    shell: 'sh',
+    sql: 'sql',
+    css: 'css',
+    html: 'html',
+    json: 'json',
+    yaml: 'yml',
+    xml: 'xml',
+    markdown: 'md'
+  };
+  
+  return extensions[language.toLowerCase()] || language;
 }
 
 export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockProps) {
@@ -20,27 +48,30 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const fileExtension = getFileExtension(language);
+  const displayFilename = filename || `${language}.${fileExtension}`;
+
   return (
-    <div className="my-8 rounded-lg overflow-hidden border border-slate-700 shadow-2xl bg-[#282a36]">
+    <div className="my-8 rounded-lg overflow-hidden border border-slate-700 shadow-2xl bg-[#1e1e1e]">
       {/* Window Header */}
-      <div className="flex items-center justify-between bg-[#44475a] px-4 py-3 border-b border-slate-600">
+      <div className="flex items-center justify-between bg-[#2d2d30] px-4 py-3 border-b border-slate-600">
         <div className="flex items-center space-x-3">
           {/* Traffic Light Buttons */}
           <div className="flex space-x-2">
-            <div className="w-3 h-3 rounded-full bg-[#ff5555]"></div>
-            <div className="w-3 h-3 rounded-full bg-[#f1fa8c]"></div>
-            <div className="w-3 h-3 rounded-full bg-[#50fa7b]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#27ca3f]"></div>
           </div>
-          {/* Filename or Language */}
-          <span className="text-sm font-medium text-[#f8f8f2] font-mono">
-            {filename || `${language}.${language === 'haskell' ? 'hs' : language}`}
+          {/* Filename */}
+          <span className="text-sm font-medium text-[#cccccc] font-mono">
+            {displayFilename}
           </span>
         </div>
         
         {/* Copy Button */}
         <button
           onClick={handleCopy}
-          className="flex items-center space-x-1 px-2 py-1 rounded text-xs text-[#f8f8f2] hover:bg-[#6272a4] transition-colors duration-200"
+          className="flex items-center space-x-1 px-2 py-1 rounded text-xs text-[#cccccc] hover:bg-[#3e3e42] transition-colors duration-200"
           title="Copy code"
         >
           {copied ? (
@@ -61,11 +92,11 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
       <div className="relative">
         <SyntaxHighlighter
           language={language}
-          style={dracula}
+          style={oneDark}
           customStyle={{
             margin: 0,
             padding: '1.5rem',
-            backgroundColor: '#282a36',
+            backgroundColor: '#1e1e1e',
             fontSize: '0.875rem',
             lineHeight: '1.5',
           }}
@@ -73,7 +104,7 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
           lineNumberStyle={{
             minWidth: '3em',
             paddingRight: '1em',
-            color: '#6272a4',
+            color: '#858585',
             fontSize: '0.8rem',
           }}
           wrapLines={true}
