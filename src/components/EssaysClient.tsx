@@ -82,7 +82,7 @@ export function EssaysClient({ posts }: EssaysClientProps) {
             onClick={() => handleTagChange(null)}
             className={`${
               selectedTag === null 
-                ? "bg-sage hover:bg-sage/90 text-white" 
+                ? "bg-slate-700 hover:bg-slate-600 text-white border-slate-700" 
                 : "border-sage/30 hover:bg-sage/10 hover:border-sage/50"
             } transition-all duration-300`}
           >
@@ -95,7 +95,7 @@ export function EssaysClient({ posts }: EssaysClientProps) {
               onClick={() => handleTagChange(tag)}
               className={`${
                 selectedTag === tag 
-                  ? "bg-sage hover:bg-sage/90 text-white" 
+                  ? "bg-slate-700 hover:bg-slate-600 text-white border-slate-700" 
                   : "border-sage/30 hover:bg-sage/10 hover:border-sage/50"
               } transition-all duration-300 capitalize`}
             >
@@ -151,7 +151,7 @@ export function EssaysClient({ posts }: EssaysClientProps) {
                       onClick={() => setCurrentPage(page)}
                       className={`w-10 h-10 p-0 ${
                         currentPage === page
-                          ? "bg-sage hover:bg-sage/90 text-white"
+                          ? "bg-slate-700 hover:bg-slate-600 text-white border-slate-700"
                           : "border-sage/30 hover:bg-sage/10 hover:border-sage/50"
                       }`}
                     >
