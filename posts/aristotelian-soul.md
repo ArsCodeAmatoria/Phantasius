@@ -1,6 +1,6 @@
 ---
-title: "The Aristotelian Soul: Ancient Psychology for Modern Minds"
-date: "2024-01-20"
+title: "The Aristotelian Soul: Form, Function, and Phantasia"
+date: "2025-01-20"
 excerpt: "Exploring Aristotle's tripartite understanding of the soul and its surprising relevance to contemporary neuroscience and theories of mind."
 tags: ["aristotle", "psychology", "consciousness", "ancient-wisdom"]
 ---

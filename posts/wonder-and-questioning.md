@@ -1,6 +1,6 @@
 ---
-title: "The Origin of Wonder: Philosophy and the Art of Questioning"
-date: "2024-02-25"
+title: "Wonder and Questioning: The Beginning of Philosophy"
+date: "2025-02-25"
 excerpt: "Exploring how wonder (thaumazein) serves as the beginning of philosophy and how we can cultivate the capacity for genuine questioning in daily life."
 tags: ["wonder", "questioning", "aristotle", "philosophy"]
 ---

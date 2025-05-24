@@ -1,6 +1,6 @@
 ---
-title: "Contemplative Technology: Ancient Practices for Digital Minds"
-date: "2024-01-25"
+title: "Contemplative Technology: Mindful Design in the Digital Age"
+date: "2025-01-25"
 excerpt: "How the wisdom traditions of contemplative practice can transform our relationship with technology and restore depth to digital life."
 tags: ["technology", "contemplation", "digital-wisdom", "mindfulness"]
 ---

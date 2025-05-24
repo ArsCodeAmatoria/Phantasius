@@ -1,6 +1,6 @@
 ---
-title: "Dreams and the Ancient Mind: Oneiric Wisdom from Heraclitus to Freud"
-date: "2024-02-15"
+title: "Dreams and Consciousness: The Night Theatre of Phantasia"
+date: "2025-02-15"
 excerpt: "Exploring ancient Greek understanding of dreams as a window into consciousness, from Heraclitean flux to modern neuroscience of sleep."
 tags: ["dreams", "consciousness", "ancient-philosophy", "heraclitus"]
 ---

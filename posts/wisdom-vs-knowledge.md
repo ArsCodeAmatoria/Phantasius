@@ -1,6 +1,6 @@
 ---
-title: "Sophia vs Episteme: The Ancient Distinction Between Wisdom and Knowledge"
-date: "2024-02-10"
+title: "Wisdom vs Knowledge: The Ancient Distinction in Modern Times"
+date: "2025-02-10"
 excerpt: "Exploring the profound difference between wisdom and mere knowledge, from Socratic ignorance to practical wisdom in the information age."
 tags: ["wisdom", "knowledge", "sophia", "ancient-philosophy"]
 ---

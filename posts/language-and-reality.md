@@ -1,6 +1,6 @@
 ---
-title: "Language and Reality: Ancient Logos and the Modern Question of Meaning"
-date: "2024-03-25"
+title: "Language and Reality: The Ancient Problem of Logos"
+date: "2025-03-25"
 excerpt: "Investigating how the ancient Greek concept of logos illuminates contemporary debates about whether language shapes reality or reflects it, and what this means for philosophical understanding."
 tags: ["language", "reality", "logos", "meaning"]
 ---

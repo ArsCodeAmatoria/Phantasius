@@ -1,6 +1,6 @@
 ---
-title: "The Memory Palace: Ancient Architecture of Mind"
-date: "2024-01-10"
+title: "The Memory Palace: Phantasia as Architecture of Recall"
+date: "2025-01-10"
 excerpt: "Exploring the classical ars memoriae and its profound insights into spatial cognition, imagination, and the nature of human memory."
 tags: ["memory", "ancient-techniques", "cognition", "architecture"]
 ---

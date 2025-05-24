@@ -1,6 +1,6 @@
 ---
-title: "The Beautiful and the True: Aesthetics as Philosophical Practice"
-date: "2024-02-20"
+title: "Beauty and Philosophy: The Aesthetic Dimension of Truth"
+date: "2025-02-20"
 excerpt: "Exploring how beauty serves not merely as decoration but as a fundamental pathway to truth, wisdom, and the cultivation of the philosophical life."
 tags: ["beauty", "aesthetics", "plato", "philosophy"]
 ---

@@ -1,6 +1,6 @@
 ---
 title: "On Phantasia: The Theatre of Mental Images"
-date: "2024-01-15"
+date: "2025-01-15"
 excerpt: "An exploration of the ancient Greek concept of φαντασία and its relevance to modern understanding of imagination and consciousness."
 tags: ["philosophy", "consciousness", "ancient-wisdom"]
 ---

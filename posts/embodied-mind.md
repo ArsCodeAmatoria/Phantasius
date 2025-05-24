@@ -1,6 +1,6 @@
 ---
-title: "The Embodied Mind: From Aristotelian Psychology to Modern Embodied Cognition"
-date: "2024-03-05"
+title: "The Embodied Mind: From Ancient Soma to Modern Neuroscience"
+date: "2025-03-05"
 excerpt: "Exploring how the ancient understanding of mind as fundamentally embodied challenges modern dualistic thinking and points toward a more integrated view of consciousness."
 tags: ["embodiment", "aristotle", "consciousness", "ancient-wisdom"]
 ---

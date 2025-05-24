@@ -64,7 +64,7 @@ Create new blog posts by adding Markdown files to the `posts/` directory:
 ```markdown
 ---
 title: "Your Post Title"
-date: "2024-01-15"
+date: "2025-01-15"
 excerpt: "A brief description of your post"
 tags: ["philosophy", "consciousness"]
 ---

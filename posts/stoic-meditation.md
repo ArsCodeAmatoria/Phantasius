@@ -1,6 +1,6 @@
 ---
-title: "The Art of Stoic Meditation: Training the Mind's Eye"
-date: "2024-01-10"
+title: "Stoic Meditation: The Practice of Present-Moment Phantasia"
+date: "2025-01-12"
 excerpt: "How ancient Stoic practices of mental visualization and reflection can transform our relationship with thoughts and emotions."
 tags: ["stoicism", "meditation", "practice"]
 ---

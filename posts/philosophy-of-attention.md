@@ -1,6 +1,6 @@
 ---
-title: "The Philosophy of Attention: Where Consciousness Meets World"
-date: "2024-01-30"
+title: "The Philosophy of Attention: Consciousness and the Art of Presence"
+date: "2025-01-30"
 excerpt: "Exploring attention as the fundamental faculty through which consciousness engages reality, from ancient Buddhist insights to modern cognitive science."
 tags: ["attention", "consciousness", "phenomenology", "buddhism"]
 ---

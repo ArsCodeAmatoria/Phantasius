@@ -1,6 +1,6 @@
 ---
-title: "Digital Phantasia: Ancient Wisdom for the Information Age"
-date: "2024-01-05"
+title: "Digital Minimalism and the Return to Contemplative Technology"
+date: "2025-01-05"
 excerpt: "How the ancient understanding of mental images and attention can guide us through the overwhelming landscape of digital information."
 tags: ["digital-minimalism", "attention", "modern-life"]
 ---

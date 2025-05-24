@@ -1,11 +1,11 @@
 ---
-title: "Time and Consciousness: The Temporal Structure of Awareness"
-date: "2024-02-05"
+title: "Time and Consciousness: The Temporal Structure of Experience"
+date: "2025-02-05"
 excerpt: "An exploration of how consciousness experiences time, from Augustine's psychological time to modern neuroscience and contemplative insights."
 tags: ["time", "consciousness", "phenomenology", "temporality"]
 ---
 
-# Time and Consciousness: The Temporal Structure of Awareness
+# Time and Consciousness: The Temporal Structure of Experience
 
 What is time? This question has haunted philosophers, physicists, and contemplatives for millennia. Yet perhaps equally mysterious is the related question: **How does consciousness experience time?** The relationship between time and awareness reveals something fundamental about the nature of mind itself.
 
