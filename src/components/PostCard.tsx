@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { formatDate, type PostMeta } from "@/lib/posts";
+import { formatDate } from "@/lib/utils";
+import { type PostMeta } from "@/lib/posts";
 
 interface PostCardProps {
   post: PostMeta;

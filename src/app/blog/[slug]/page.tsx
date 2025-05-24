@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Clock } from "lucide-react";
-import { getPostData, getAllPostSlugs, formatDate } from "@/lib/posts";
+import { getPostData, getAllPostSlugs } from "@/lib/posts";
+import { formatDate } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ReadingProgress } from "@/components/ReadingProgress";
 
