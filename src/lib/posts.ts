@@ -4,8 +4,6 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeRaw from 'rehype-raw';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -33,15 +31,10 @@ export async function getPostData(slug: string): Promise<PostData> {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  // Use remark to convert markdown into HTML string with enhanced features
+  // Use remark to convert markdown into HTML string with GitHub Flavored Markdown
   const processedContent = await remark()
-    .use(remarkGfm) // GitHub Flavored Markdown (tables, strikethrough, etc.)
-    .use(html, { sanitize: false }) // Allow raw HTML for better formatting
-    .use(rehypeRaw) // Process raw HTML elements
-    .use(rehypeHighlight, { // Syntax highlighting for code blocks
-      detect: true,
-      ignoreMissing: true
-    })
+    .use(remarkGfm) // GitHub Flavored Markdown for tables
+    .use(html, { sanitize: false })
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
