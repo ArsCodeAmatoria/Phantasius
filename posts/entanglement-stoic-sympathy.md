@@ -1,6 +1,6 @@
 ---
 title: "Entanglement and Stoic Sympathy: The Quantum Threads of Cosmic Connection"
-date: "2025-01-24"
+date: "2025-05-25"
 excerpt: "Exploring how the Stoic concept of sympatheia finds new expression in quantum entanglement, and how HaskQ enables us to program these fundamental connections"
 tags: ["stoicism", "quantum-computing", "sympatheia", "entanglement", "haskq"]
 ---

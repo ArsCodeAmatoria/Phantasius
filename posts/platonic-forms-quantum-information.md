@@ -1,6 +1,6 @@
 ---
 title: "The Cave of Quantum Information: Platonic Forms in the Age of Computation"
-date: "2025-01-24"
+date: "2025-05-26"
 excerpt: "How Plato's eternal Forms find unexpected resonance in quantum information theory, and why programming quantum computers might be the closest we've come to apprehending pure mathematical reality"
 tags: ["plato", "forms", "quantum-information", "mathematics", "haskq", "metaphysics"]
 ---
