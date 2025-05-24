@@ -4,7 +4,6 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
-import { parse, HTMLElement, Node } from 'node-html-parser';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -53,50 +52,57 @@ export async function getPostData(slug: string): Promise<PostData> {
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
-  // Parse HTML and extract code blocks
-  const root = parse(contentHtml);
+  // Extract code blocks using regex (more reliable than DOM parsing for this case)
   const contentBlocks: ContentBlock[] = [];
-  let currentHtml = '';
-
-  const processNode = (node: Node) => {
-    if (node instanceof HTMLElement && node.tagName === 'PRE') {
-      const codeElement = node.querySelector('code');
-      if (codeElement) {
-        // Save any accumulated HTML
-        if (currentHtml.trim()) {
-          contentBlocks.push({ type: 'html', content: currentHtml.trim() });
-          currentHtml = '';
-        }
-
-        // Extract code content and language
-        const codeText = codeElement.text || '';
-        const className = codeElement.getAttribute('class') || '';
-        const languageMatch = className.match(/language-(\w+)/);
-        const language = languageMatch ? languageMatch[1] : 'haskell';
-
+  
+  // Regex to match <pre><code class="language-xxx">content</code></pre>
+  const codeBlockRegex = /<pre><code(?:\s+class="language-(\w+)")?>([\s\S]*?)<\/code><\/pre>/g;
+  
+  let lastIndex = 0;
+  let match;
+  
+  while ((match = codeBlockRegex.exec(contentHtml)) !== null) {
+    // Add HTML content before this code block
+    if (match.index > lastIndex) {
+      const htmlContent = contentHtml.substring(lastIndex, match.index).trim();
+      if (htmlContent) {
         contentBlocks.push({
-          type: 'code',
-          content: codeText,
-          language: language
+          type: 'html',
+          content: htmlContent
         });
-        return; // Skip adding this to HTML
       }
     }
     
-    // Add regular content to HTML
-    if (node instanceof HTMLElement) {
-      currentHtml += node.outerHTML;
-    } else {
-      currentHtml += node.toString();
+    // Add the code block
+    const language = match[1] || 'haskell'; // Default to haskell if no language specified
+    const codeContent = match[2];
+    
+    // Decode HTML entities in the code content
+    const decodedCode = codeContent
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&amp;/g, '&')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'");
+    
+    contentBlocks.push({
+      type: 'code',
+      content: decodedCode,
+      language: language
+    });
+    
+    lastIndex = match.index + match[0].length;
+  }
+  
+  // Add any remaining HTML content after the last code block
+  if (lastIndex < contentHtml.length) {
+    const remainingHtml = contentHtml.substring(lastIndex).trim();
+    if (remainingHtml) {
+      contentBlocks.push({
+        type: 'html',
+        content: remainingHtml
+      });
     }
-  };
-
-  // Process all child nodes
-  root.childNodes.forEach(processNode);
-
-  // Add any remaining HTML
-  if (currentHtml.trim()) {
-    contentBlocks.push({ type: 'html', content: currentHtml.trim() });
   }
 
   // Combine the data with the slug and contentHtml
