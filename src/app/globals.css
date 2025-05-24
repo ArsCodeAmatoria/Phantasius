@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import 'katex/dist/katex.min.css';
 
 @tailwind base;
 @tailwind components;
@@ -493,4 +494,65 @@
   .border-gold {
     border-color: hsl(var(--gold));
   }
+}
+
+/* KaTeX Math Expressions */
+.katex-display {
+  @apply my-8 overflow-x-auto;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, 
+    hsla(var(--scroll), 0.8), 
+    hsla(var(--marble), 0.4)
+  );
+  border-radius: 8px;
+  border-left: 4px solid hsl(var(--sage));
+  position: relative;
+}
+
+.katex-display::before {
+  content: '∴';
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+  color: hsl(var(--sage));
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.katex {
+  color: hsl(var(--primary)) !important;
+  font-size: 1.1em;
+}
+
+/* Inline math expressions */
+.katex-inline {
+  @apply px-1;
+  background: hsla(var(--scroll), 0.3);
+  border-radius: 3px;
+  color: hsl(var(--sage)) !important;
+}
+
+/* Math symbols and operators */
+.katex .mord,
+.katex .mop,
+.katex .mbin,
+.katex .mrel {
+  color: inherit !important;
+}
+
+/* Greek letters in math */
+.katex .mathit {
+  color: hsl(var(--sage)) !important;
+  font-style: italic;
+}
+
+/* Math delimiters */
+.katex .mopen,
+.katex .mclose {
+  color: hsl(var(--gold)) !important;
+}
+
+/* Math fractions */
+.katex .frac-line {
+  border-bottom-color: hsl(var(--primary)) !important;
 }

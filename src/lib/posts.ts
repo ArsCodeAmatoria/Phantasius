@@ -1,9 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import remarkRehype from 'remark-rehype';
+import rehypeKatex from 'rehype-katex';
+import rehypeStringify from 'rehype-stringify';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -45,12 +49,62 @@ export async function getPostData(slug: string): Promise<PostData> {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  // Use remark to convert markdown into HTML string with GitHub Flavored Markdown
-  const processedContent = await remark()
+  // ROBUST FIX: Properly tokenize math expressions to prevent greedy parsing
+  let processedMarkdown = matterResult.content;
+  
+  // Step 1: Replace & with placeholder in existing math expressions
+  processedMarkdown = processedMarkdown.replace(/\$\$([\s\S]*?)\$\$/g, (match, mathContent) => {
+    return '$$' + mathContent.replace(/&/g, 'XAMPERSANDX') + '$$';
+  });
+  
+  processedMarkdown = processedMarkdown.replace(/\$([^$\n]+?)\$/g, (match, mathContent) => {
+    return '$' + mathContent.replace(/&/g, 'XAMPERSANDX') + '$';
+  });
+  
+  // Step 2: FORCE PROPER TOKENIZATION by replacing $$ with unique markers
+  const mathBlocks: string[] = [];
+  let blockIndex = 0;
+  
+  // Extract all display math blocks and replace with unique markers
+  processedMarkdown = processedMarkdown.replace(/\$\$([\s\S]*?)\$\$/g, (match, content) => {
+    mathBlocks.push(content);
+    return `MATH_BLOCK_${blockIndex++}_MARKER`;
+  });
+  
+  // Now put them back one by one with proper spacing
+  for (let i = 0; i < mathBlocks.length; i++) {
+    const marker = `MATH_BLOCK_${i}_MARKER`;
+    processedMarkdown = processedMarkdown.replace(marker, `$$${mathBlocks[i]}$$`);
+  }
+
+  // Use unified pipeline to convert markdown to HTML with KaTeX math support
+  const processedContent = await unified()
+    .use(remarkParse) // Parse markdown
     .use(remarkGfm) // GitHub Flavored Markdown for tables
-    .use(html, { sanitize: false })
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+    .use(remarkMath) // Parse math expressions
+    .use(remarkRehype, { 
+      allowDangerousHtml: true,
+      entities: {
+        useShortestReferences: true,
+        useNamedReferences: true
+      }
+    }) // Convert to HTML with better entity handling
+    .use(rehypeKatex, {
+      strict: false,
+      trust: true
+    }) // Render math with KaTeX (less strict)
+    .use(rehypeStringify, { 
+      allowDangerousHtml: true,
+      entities: {
+        useShortestReferences: true,
+        useNamedReferences: true
+      }
+    }) // Convert to string
+    .process(processedMarkdown);
+  let contentHtml = processedContent.toString();
+  
+  // Post-process: Restore & characters
+  contentHtml = contentHtml.replace(/XAMPERSANDX/g, '&');
 
   // Extract code blocks using regex (more reliable than DOM parsing for this case)
   const contentBlocks: ContentBlock[] = [];
