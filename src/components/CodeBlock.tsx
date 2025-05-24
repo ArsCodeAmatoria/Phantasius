@@ -96,7 +96,7 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
           customStyle={{
             margin: 0,
             padding: '1.5rem',
-            backgroundColor: '#334155', // slate-700
+            backgroundColor: '#1a1a1a', // Much darker for better contrast
             fontSize: '0.875rem',
             lineHeight: '1.5',
           }}
@@ -104,7 +104,7 @@ export function CodeBlock({ code, language = 'haskell', filename }: CodeBlockPro
           lineNumberStyle={{
             minWidth: '3em',
             paddingRight: '1em',
-            color: '#94a3b8', // slate-400
+            color: '#6b7280', // gray-500 for better visibility
             fontSize: '0.8rem',
           }}
           wrapLines={true}
