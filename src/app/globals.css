@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css');
 
 @tailwind base;
 @tailwind components;
@@ -265,12 +264,11 @@
     border-bottom: none;
   }
 
-  /* Code Blocks and Syntax Highlighting */
+  /* Code Blocks - Updated for CodeBlock component integration */
   .prose pre {
     @apply my-8 p-0 rounded-lg overflow-hidden;
-    background: hsl(var(--card)) !important;
-    border: 1px solid hsl(var(--border));
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    /* These styles are now handled by the CodeBlock component */
+    display: none; /* Hide default pre elements as they'll be replaced */
   }
   
   .prose pre code {
@@ -288,61 +286,15 @@
     font-size: 0.9em;
   }
   
+  /* Don't style code inside pre elements as they're handled by CodeBlock */
   .prose pre code {
     @apply p-0;
     background: transparent;
     color: inherit;
+    display: none; /* Hide as replaced by CodeBlock component */
   }
 
-  /* Syntax highlighting overrides for dark theme */
-  .hljs {
-    background: hsl(var(--card)) !important;
-    color: hsl(var(--foreground)) !important;
-  }
-  
-  .hljs-keyword,
-  .hljs-selector-tag,
-  .hljs-title,
-  .hljs-section,
-  .hljs-doctag,
-  .hljs-name,
-  .hljs-strong {
-    color: hsl(var(--sage)) !important;
-  }
-  
-  .hljs-string,
-  .hljs-title,
-  .hljs-section,
-  .hljs-built_in,
-  .hljs-literal,
-  .hljs-type,
-  .hljs-addition,
-  .hljs-tag,
-  .hljs-quote,
-  .hljs-name,
-  .hljs-selector-id,
-  .hljs-selector-class {
-    color: hsl(var(--gold)) !important;
-  }
-  
-  .hljs-comment,
-  .hljs-quote,
-  .hljs-deletion,
-  .hljs-meta {
-    color: hsl(var(--muted-foreground)) !important;
-    font-style: italic;
-  }
-  
-  .hljs-number,
-  .hljs-regexp,
-  .hljs-symbol,
-  .hljs-variable,
-  .hljs-template-variable,
-  .hljs-link,
-  .hljs-selector-attr,
-  .hljs-selector-pseudo {
-    color: #7c3aed !important;
-  }
+  /* Remove old syntax highlighting - now handled by CodeBlock component */
   
   /* Philosophical callouts */
   .philosophical-callout {

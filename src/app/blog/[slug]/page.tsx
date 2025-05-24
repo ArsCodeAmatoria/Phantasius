@@ -5,6 +5,7 @@ import { getPostData, getAllPostSlugs } from "@/lib/posts";
 import { formatDate } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ReadingProgress } from "@/components/ReadingProgress";
+import { PostContent } from "@/components/PostContent";
 
 interface BlogPostProps {
   params: Promise<{
@@ -115,10 +116,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
             {/* Article Content */}
             <article className="max-w-3xl mx-auto">
-              <div 
-                className="prose prose-lg prose-philosophy max-w-none"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
+              <PostContent content={post.content} />
             </article>
 
             {/* Navigation Footer */}
