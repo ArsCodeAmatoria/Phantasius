@@ -4,8 +4,22 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
+import { parse, HTMLElement, Node } from 'node-html-parser';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
+
+export interface CodeBlock {
+  type: 'code';
+  content: string;
+  language: string;
+}
+
+export interface HtmlBlock {
+  type: 'html';
+  content: string;
+}
+
+export type ContentBlock = CodeBlock | HtmlBlock;
 
 export interface PostData {
   slug: string;
@@ -14,6 +28,7 @@ export interface PostData {
   excerpt: string;
   tags: string[];
   content: string;
+  contentBlocks: ContentBlock[];
 }
 
 export interface PostMeta {
@@ -38,10 +53,57 @@ export async function getPostData(slug: string): Promise<PostData> {
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
+  // Parse HTML and extract code blocks
+  const root = parse(contentHtml);
+  const contentBlocks: ContentBlock[] = [];
+  let currentHtml = '';
+
+  const processNode = (node: Node) => {
+    if (node instanceof HTMLElement && node.tagName === 'PRE') {
+      const codeElement = node.querySelector('code');
+      if (codeElement) {
+        // Save any accumulated HTML
+        if (currentHtml.trim()) {
+          contentBlocks.push({ type: 'html', content: currentHtml.trim() });
+          currentHtml = '';
+        }
+
+        // Extract code content and language
+        const codeText = codeElement.text || '';
+        const className = codeElement.getAttribute('class') || '';
+        const languageMatch = className.match(/language-(\w+)/);
+        const language = languageMatch ? languageMatch[1] : 'haskell';
+
+        contentBlocks.push({
+          type: 'code',
+          content: codeText,
+          language: language
+        });
+        return; // Skip adding this to HTML
+      }
+    }
+    
+    // Add regular content to HTML
+    if (node instanceof HTMLElement) {
+      currentHtml += node.outerHTML;
+    } else {
+      currentHtml += node.toString();
+    }
+  };
+
+  // Process all child nodes
+  root.childNodes.forEach(processNode);
+
+  // Add any remaining HTML
+  if (currentHtml.trim()) {
+    contentBlocks.push({ type: 'html', content: currentHtml.trim() });
+  }
+
   // Combine the data with the slug and contentHtml
   return {
     slug,
     content: contentHtml,
+    contentBlocks,
     title: matterResult.data.title,
     date: matterResult.data.date,
     excerpt: matterResult.data.excerpt,

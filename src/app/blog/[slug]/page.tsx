@@ -116,7 +116,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
             {/* Article Content */}
             <article className="max-w-3xl mx-auto">
-              <PostContent content={post.content} />
+              <PostContent contentBlocks={post.contentBlocks} />
             </article>
 
             {/* Navigation Footer */}

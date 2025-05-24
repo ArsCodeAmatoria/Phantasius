@@ -267,8 +267,10 @@
   /* Code Blocks - Updated for CodeBlock component integration */
   .prose pre {
     @apply my-8 p-0 rounded-lg overflow-hidden;
-    /* These styles are now handled by the CodeBlock component */
-    display: none; /* Hide default pre elements as they'll be replaced */
+    /* Pre elements will be replaced by CodeBlock component */
+    background: hsl(var(--card)) !important;
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
   
   .prose pre code {
@@ -286,12 +288,11 @@
     font-size: 0.9em;
   }
   
-  /* Don't style code inside pre elements as they're handled by CodeBlock */
+  /* Don't style code inside pre elements differently when they're being replaced */
   .prose pre code {
-    @apply p-0;
+    @apply p-6;
     background: transparent;
     color: inherit;
-    display: none; /* Hide as replaced by CodeBlock component */
   }
 
   /* Remove old syntax highlighting - now handled by CodeBlock component */
