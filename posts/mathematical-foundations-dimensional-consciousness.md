@@ -799,11 +799,11 @@ The **mathematical foundations** of **dimensional consciousness** provide a **ri
 
 These **mathematical tools** enable:
 
-📐 **Geometric modeling** of **consciousness states** and **transformations**  
-📊 **Information-theoretic analysis** of **consciousness dynamics**  
-🔗 **Categorical formulation** of **consciousness types** and **relationships**  
-📈 **Scaling analysis** of **consciousness** across **dimensional regimes**  
-🔄 **Renormalization group** approaches to **consciousness universality**
+**Geometric modeling** of **consciousness states** and **transformations**  
+**Information-theoretic analysis** of **consciousness dynamics**  
+**Categorical formulation** of **consciousness types** and **relationships**  
+**Scaling analysis** of **consciousness** across **dimensional regimes**  
+**Renormalization group** approaches to **consciousness universality**
 
 As these **mathematical frameworks** continue to **develop** and **integrate** with **empirical research**, they will provide the **theoretical foundation** for a **truly scientific understanding** of **consciousness** — bridging the **explanatory gap** between **subjective experience** and **objective mathematics**.
 

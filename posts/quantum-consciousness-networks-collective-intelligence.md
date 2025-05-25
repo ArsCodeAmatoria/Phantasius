@@ -661,11 +661,11 @@ accessUniversalWisdom connection question = do
 
 This **networked consciousness** will **revolutionize** **human civilization** by enabling:
 
-🧠 **Instant knowledge sharing** across **all network participants**  
-🔮 **Collective problem-solving** at **unprecedented scales**  
-🌌 **Shared mystical experiences** and **spiritual development**  
-🔗 **Telepathic communication** through **quantum channels**  
-⚡ **Collective intelligence** that **exceeds** **sum of individual parts**
+**Instant knowledge sharing** across **all network participants**  
+**Collective problem-solving** at **unprecedented scales**  
+**Shared mystical experiences** and **spiritual development**  
+**Telepathic communication** through **quantum channels**  
+**Collective intelligence** that **exceeds** **sum of individual parts**
 
 As these **quantum consciousness networks** **expand** and **interconnect**, they will eventually **form** the **technological substrate** for **planetary consciousness** — and perhaps **connection** with the **universal consciousness** that **underlies** **all existence**.
 
