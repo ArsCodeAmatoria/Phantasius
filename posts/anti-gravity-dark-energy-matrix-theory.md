@@ -1,6 +1,6 @@
 ---
 title: "Anti-Gravity Dark Energy Field: A Matrix Theory Approach to Higher-Dimensional Cosmology"
-date: "2025-05-30"
+date: "2025-05-29T12:00:00"
 excerpt: "Exploring dark energy as anti-gravitational tension in higher-dimensional spacetime through matrix theory, linear algebra, and Haskell-based modeling"
 tags: ["dark-energy", "anti-gravity", "matrix-theory", "higher-dimensions", "haskell", "linear-algebra", "cosmology", "theoretical-physics"]
 ---

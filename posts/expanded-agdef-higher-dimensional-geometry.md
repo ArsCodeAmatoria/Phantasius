@@ -1,6 +1,6 @@
 ---
 title: "Expanded AGDEF Theory: Higher-Dimensional Geometry and Matrix Evolution in Cosmology"
-date: "2025-05-31"
+date: "2025-05-30"
 excerpt: "An advanced mathematical framework for Anti-Gravity Dark Energy Field theory featuring 5D tensor projections, matrix evolution dynamics, and comprehensive Haskell modeling"
 tags: ["agdef", "higher-dimensions", "tensor-geometry", "matrix-evolution", "dark-energy", "anti-gravity", "haskell", "theoretical-physics", "cosmology", "linear-algebra"]
 ---

@@ -1,6 +1,6 @@
 ---
 title: "AGDEF Theory and Observational Cosmology: Connecting Higher-Dimensional Anti-Gravity to Real Data"
-date: "2025-05-24T19:07:53"
+date: "2025-05-31"
 excerpt: "Linking Anti-Gravity Dark Energy Field theory to observational evidence from supernovae, CMB anisotropies, and baryon acoustic oscillations with testable predictions and Haskell simulations"
 tags: ["agdef", "observational-cosmology", "supernovae", "cmb", "bao", "dark-energy", "haskell", "theoretical-physics", "cosmological-data", "testable-predictions"]
 ---
