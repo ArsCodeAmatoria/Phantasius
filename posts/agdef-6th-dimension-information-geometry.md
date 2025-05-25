@@ -44,11 +44,13 @@ The sixth dimension thus serves as the geometric infrastructure for information 
 
 In the 6D AGDEF manifold, the metric tensor $g_{AB}$ (where $A, B = 0, 1, 2, 3, 4, 5$) encodes the complete geometric structure:
 
-$$g_{AB} = \begin{pmatrix}
-g_{\mu\nu} & A_{\mu 5} & Q_{\mu 6} \\
-A_{5\mu} & g_{55} & \chi_{56} \\
-Q_{6\mu} & \chi_{65} & g_{66}
-\end{pmatrix}$$
+```
+6D Metric Tensor g_AB:
+
+    [  g_μν   A_μ5   Q_μ6  ]
+    [  A_5μ   g_55   χ_56  ]
+    [  Q_6μ   χ_65   g_66  ]
+```
 
 Where:
 - $g_{\mu\nu}$ is the familiar 4D spacetime metric
@@ -61,18 +63,20 @@ Where:
 
 The complete stress-energy tensor in 6D takes the form:
 
-$$T_{AB} = \begin{pmatrix}
-T_{\mu\nu} & \mathcal{E}_{\mu 5} & \mathcal{I}_{\mu 6} \\
-\mathcal{E}_{5\mu} & T_{55} & \Xi_{56} \\
-\mathcal{I}_{6\mu} & \Xi_{65} & T_{66}
-\end{pmatrix}$$
+```
+6D Stress-Energy Tensor T_AB:
+
+    [  T_μν   E_μ5   I_μ6  ]
+    [  E_5μ   T_55   Ξ_56  ]
+    [  I_6μ   Ξ_65   T_66  ]
+```
 
 Where:
 - $T_{\mu\nu}$ is the conventional 4D stress-energy tensor
 - $T_{55}$ is the anti-gravity energy density (negative for repulsive effects)
 - $T_{66}$ is the information field energy density
 - $\Xi_{56}$ and $\Xi_{65}$ encode energy flow between anti-gravity and information fields
-- $\mathcal{E}_{\mu 5}$ and $\mathcal{I}_{\mu 6}$ represent energy-information flux vectors
+- $E_{\mu 5}$ and $I_{\mu 6}$ represent energy-information flux vectors
 
 ### Modified Einstein Field Equations
 
