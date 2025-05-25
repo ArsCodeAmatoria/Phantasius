@@ -1,5 +1,5 @@
 {
-  "name": "haskq-unified",
+  "name": "phantasius",
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
