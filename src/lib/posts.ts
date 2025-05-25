@@ -196,11 +196,15 @@ export function getSortedPostsData(): PostMeta[] {
       // Combine the data with the slug
       return {
         slug,
-        title: matterResult.data.title,
-        date: matterResult.data.date,
-        excerpt: matterResult.data.excerpt,
+        title: matterResult.data.title || '',
+        date: matterResult.data.date || '1970-01-01',
+        excerpt: matterResult.data.excerpt || '',
         tags: matterResult.data.tags || [],
       };
+    })
+    .filter((post) => {
+      // Only include posts with valid title and date
+      return post.title && post.title.trim() !== '' && post.date;
     });
 
   // Sort posts by date

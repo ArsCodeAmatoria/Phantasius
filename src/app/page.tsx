@@ -6,39 +6,39 @@ import Link from "next/link";
 export default function Home() {
   const allPostsData = getSortedPostsData();
   
-  // Categorize posts by content themes
+  // Categorize posts by content themes - with null-safe checks
   const agdefPosts = allPostsData.filter(post => 
-    post.tags.includes('agdef') || 
-    post.title.toLowerCase().includes('agdef') ||
-    post.title.toLowerCase().includes('anti-gravity')
+    post.tags?.includes('agdef') || 
+    post.title?.toLowerCase()?.includes('agdef') ||
+    post.title?.toLowerCase()?.includes('anti-gravity')
   );
   
   const ancientPhysicsPosts = allPostsData.filter(post => 
-    (post.tags.includes('physics') && post.tags.includes('ancient-philosophy')) ||
-    post.tags.includes('quantum-philosophy') ||
-    post.tags.includes('stoic-physics') ||
-    post.title.toLowerCase().includes('platonic') ||
-    post.title.toLowerCase().includes('stoic') && post.tags.includes('physics')
+    (post.tags?.includes('physics') && post.tags?.includes('ancient-philosophy')) ||
+    post.tags?.includes('quantum-philosophy') ||
+    post.tags?.includes('stoic-physics') ||
+    post.title?.toLowerCase()?.includes('platonic') ||
+    (post.title?.toLowerCase()?.includes('stoic') && post.tags?.includes('physics'))
   );
   
   const philosophyOfMindPosts = allPostsData.filter(post => 
-    post.tags.includes('consciousness') ||
-    post.tags.includes('dreams') ||
-    post.tags.includes('attention') ||
-    post.tags.includes('memory') ||
-    post.tags.includes('phantasia') ||
-    post.title.toLowerCase().includes('consciousness') ||
-    post.title.toLowerCase().includes('mind') ||
-    post.title.toLowerCase().includes('dreams')
+    post.tags?.includes('consciousness') ||
+    post.tags?.includes('dreams') ||
+    post.tags?.includes('attention') ||
+    post.tags?.includes('memory') ||
+    post.tags?.includes('phantasia') ||
+    post.title?.toLowerCase()?.includes('consciousness') ||
+    post.title?.toLowerCase()?.includes('mind') ||
+    post.title?.toLowerCase()?.includes('dreams')
   );
   
   const practicalPhilosophyPosts = allPostsData.filter(post => 
-    post.tags.includes('contemplative-practice') ||
-    post.tags.includes('digital-minimalism') ||
-    post.tags.includes('meditation') ||
-    post.tags.includes('practical-wisdom') ||
-    post.title.toLowerCase().includes('technology') ||
-    post.title.toLowerCase().includes('meditation')
+    post.tags?.includes('contemplative-practice') ||
+    post.tags?.includes('digital-minimalism') ||
+    post.tags?.includes('meditation') ||
+    post.tags?.includes('practical-wisdom') ||
+    post.title?.toLowerCase()?.includes('technology') ||
+    post.title?.toLowerCase()?.includes('meditation')
   );
   
   // Get remaining posts that don't fit the above categories
