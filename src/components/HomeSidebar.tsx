@@ -101,7 +101,7 @@ export function HomeSidebar({ allPosts, recentPosts }: HomeSidebarProps) {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 relative z-10 pt-0">
-          {recentPosts.slice(0, 4).map((post, index) => (
+          {recentPosts.slice(0, 4).map((post) => (
             <div key={post.slug} className="group/item border-b border-sage/15 last:border-0 pb-3 last:pb-0 hover:bg-sage/8 rounded-lg p-3 -m-3 transition-all duration-300">
               <Link href={`/blog/${post.slug}`}>
                 <h4 className="font-medium text-sm leading-tight hover:text-gold transition-colors duration-300 line-clamp-2 mb-2">
@@ -144,7 +144,7 @@ export function HomeSidebar({ allPosts, recentPosts }: HomeSidebarProps) {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 relative z-10 pt-0">
-          {featuredPosts.map((post, index) => (
+          {featuredPosts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`}>
               <div className="group/featured p-3 rounded-lg hover:bg-gradient-to-r hover:from-gold/10 hover:to-sage/10 transition-all duration-300 border border-transparent hover:border-gold/25">
                 <h4 className="font-medium text-sm leading-tight group-hover/featured:text-gold transition-colors duration-300 line-clamp-2 mb-2">
@@ -181,7 +181,7 @@ export function HomeSidebar({ allPosts, recentPosts }: HomeSidebarProps) {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 relative z-10 pt-0">
-          {categories.map((category, index) => (
+          {categories.map((category) => (
             <Link key={category.slug} href={`/essays?tag=${category.slug}`}>
               <div className="group/category flex items-center justify-between p-3 rounded-lg hover:bg-gradient-to-r hover:from-sage/12 hover:to-gold/12 transition-all duration-300 border border-transparent hover:border-sage/30">
                 <div className="flex items-center gap-3">

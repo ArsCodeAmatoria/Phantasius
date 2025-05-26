@@ -41,18 +41,6 @@ export default function Home() {
     post.title?.toLowerCase()?.includes('technology') ||
     post.title?.toLowerCase()?.includes('meditation')
   );
-  
-  // Get remaining posts that don't fit the above categories
-  const categorizedSlugs = [
-    ...agdefPosts.map(p => p.slug),
-    ...ancientPhysicsPosts.map(p => p.slug),
-    ...philosophyOfMindPosts.map(p => p.slug),
-    ...practicalPhilosophyPosts.map(p => p.slug)
-  ];
-  
-  const otherPosts = allPostsData.filter(post => 
-    !categorizedSlugs.includes(post.slug)
-  );
 
   // Recent posts for hero section (top 3 most recent)
   const recentPosts = allPostsData.slice(0, 3);
@@ -66,61 +54,6 @@ export default function Home() {
   ].filter((post, index, self) => 
     index === self.findIndex(p => p.slug === post.slug)
   ).slice(0, 6); // Limit to 6 posts for 2 rows
-
-  const PostSection = ({ title, description, posts, maxPosts = 3, sectionId }: {
-    title: string;
-    description: string;
-    posts: typeof allPostsData;
-    maxPosts?: number;
-    sectionId: string;
-  }) => {
-    if (posts.length === 0) return null;
-    
-    const displayPosts = posts.slice(0, maxPosts);
-    
-    return (
-      <div className="scroll-spacing mb-16">
-        <div className="text-center mb-8">
-          <h3 className="text-3xl font-serif font-semibold philosophical-heading mb-3">
-            {title}
-          </h3>
-          <p className="text-muted-foreground italic text-lg">
-            {description}
-          </p>
-        </div>
-        
-        <div className="grid gap-8 max-w-4xl mx-auto">
-          {displayPosts.map((post, index) => (
-            <div 
-              key={post.slug}
-              className="animate-fade-in-up"
-              style={{ 
-                animationDelay: `${index * 100}ms`,
-                opacity: 0,
-                animation: `fadeInUp 0.6s ease-out ${index * 100}ms forwards`
-              }}
-            >
-              <PostCard post={post} />
-            </div>
-          ))}
-        </div>
-        
-        {posts.length > maxPosts && (
-          <div className="text-center mt-8">
-            <Link href={`/essays#${sectionId}`}>
-              <Button 
-                variant="outline" 
-                size="sm"
-                className="border-sage/30 hover:bg-sage/10 hover:border-sage/50 transition-all duration-300"
-              >
-                View All {title} ({posts.length})
-              </Button>
-            </Link>
-          </div>
-        )}
-      </div>
-    );
-  };
 
   return (
     <div className="scroll-container py-16">
