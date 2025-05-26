@@ -9,11 +9,16 @@ interface PostCardProps {
 
 export function PostCard({ post }: PostCardProps) {
   return (
-    <Card className="philosophical-card smooth-transition group">
-      <CardHeader className="pb-4">
+    <Card className="enhanced-card smooth-transition group bg-gradient-to-br from-sage/6 to-gold/4 border-sage/20 overflow-hidden relative">
+      {/* Shine effect overlay */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1200 ease-out"></div>
+      </div>
+      
+      <CardHeader className="pb-4 relative z-10">
         <div className="space-y-3">
           <Link href={`/blog/${post.slug}`}>
-            <h2 className="philosophical-heading text-2xl font-serif font-semibold leading-tight group-hover:text-primary transition-colors duration-300">
+            <h2 className="philosophical-heading text-2xl font-serif font-semibold leading-tight group-hover:text-white transition-colors duration-300">
               {post.title}
             </h2>
           </Link>
@@ -31,7 +36,7 @@ export function PostCard({ post }: PostCardProps) {
                   {post.tags.map((tag) => (
                     <span 
                       key={tag} 
-                      className="px-3 py-1 bg-gradient-to-r from-sage/10 to-gold/10 border border-sage/20 rounded-full text-xs font-medium text-sage hover:bg-gradient-to-r hover:from-sage/20 hover:to-gold/20 transition-all duration-300"
+                      className="px-3 py-1 bg-gradient-to-r from-sage/15 to-gold/12 border border-sage/25 rounded-full text-xs font-medium text-sage hover:from-sage/25 hover:to-gold/20 hover:bg-gradient-to-r hover:text-white transition-all duration-300"
                     >
                       {tag}
                     </span>
@@ -42,14 +47,14 @@ export function PostCard({ post }: PostCardProps) {
           </div>
         </div>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-muted-foreground leading-relaxed text-justify">
+      <CardContent className="space-y-4 relative z-10">
+        <p className="text-muted-foreground leading-relaxed text-justify group-hover:text-white/90 transition-colors duration-300">
           {post.excerpt}
         </p>
         <div className="pt-2">
           <Link 
             href={`/blog/${post.slug}`}
-            className="inline-flex items-center text-sm font-medium text-sage hover:text-gold transition-colors duration-300 group"
+            className="inline-flex items-center text-sm font-medium text-sage hover:text-white transition-colors duration-300 group"
           >
             <span>Continue reading</span>
             <svg 
