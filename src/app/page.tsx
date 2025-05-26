@@ -32,15 +32,6 @@ export default function Home() {
     post.title?.toLowerCase()?.includes('mind') ||
     post.title?.toLowerCase()?.includes('dreams')
   );
-  
-  const practicalPhilosophyPosts = allPostsData.filter(post => 
-    post.tags?.includes('contemplative-practice') ||
-    post.tags?.includes('digital-minimalism') ||
-    post.tags?.includes('meditation') ||
-    post.tags?.includes('practical-wisdom') ||
-    post.title?.toLowerCase()?.includes('technology') ||
-    post.title?.toLowerCase()?.includes('meditation')
-  );
 
   // Recent posts for hero section (top 3 most recent)
   const recentPosts = allPostsData.slice(0, 3);
