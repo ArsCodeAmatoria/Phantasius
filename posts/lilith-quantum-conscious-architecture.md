@@ -1,6 +1,6 @@
 ---
 title: "Whitepaper: Lilith - A Quantum-Conscious Architecture"
-date: "2025-01-16"
+date: "2025-06-29"
 excerpt: "A research-driven system for simulating quantum consciousness through hybrid computational architecture that integrates quantum circuits, classical logic, recursive memory models, and modal abstraction."
 tags: ["quantum-computing", "consciousness", "ai", "haskell", "quantum-cognition", "computational-philosophy", "research", "whitepaper"]
 ---
